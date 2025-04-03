@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Parkinsans:wght@300..800&family=Playwrite+HU:wght@100..400&family=Playwrite+PE+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, ::after, ::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lato";
+}
+body{
+    background-color: #f1f1f1;
+}
+.container{
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+}
+h1{
+    color:#1a2f42;
+    margin: 20px 0;
+    padding-bottom: 20px;
+    
+    border-bottom: 2px dashed gray;
+
+}
+h1 span:nth-child(1){
+    font-weight: normal;
+    color:#ed5d34;
+}
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 30px;
+    margin: 80px 0;
+}
+.card-wrapper{
+   position: relative;
+   min-height: 350px;
+   perspective: 2000px;
+   perspective-origin:top ;
+}
+.card-wrapper:hover .card{
+    transform: rotateY(180deg);
+}
+.card{
+    position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0, 0.07,1);
+    color:white !important;
+    font-weight: bold;
+}
+.card-front, .card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    padding: 30px;
+    border-radius: 8px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.card-front{
+    /* transform: rotateY(0deg); */
+    background-color: #ed5d34;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-wrapper:nth-child(even) .card-front{
+    background-color: #3f4854;
+}
+.card-front p{
+    font-size: 16px;
+    line-height: 35px;
+}
+.arrow-icon{
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+.card-price{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.card-back{
+    background: #ed5d34;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-wrapper:nth-child(even) .card-back{
+    background-color: #3f4854;
+}
+.card-back a{
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: normal;
+    background: #fff;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.card-wrapper:nth-child(odd) .card-back a:hover{
+    background-color: #ed5d34;
+    color:#fff;
+}
